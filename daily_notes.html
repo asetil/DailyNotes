@@ -26,6 +26,9 @@
         .card-flip:hover .flip-content { transform: rotateY( 180deg ); transition: transform 0.5s; }
         .front, .back { position: absolute; height: 100%; width: 100%; background: #1cefc8; line-height: 300px; color: #fff; text-align: center; font-size: 60px; border-radius: 5px; backface-visibility: hidden; }
         .back { background: #03446A; color: white; transform: rotateY( 180deg ); }
+
+        h1:has(.red) { color: red; }
+        h1:has(+h2) { color: blue; }
     </style>
 </head>
 <body>
@@ -36,34 +39,37 @@
     <h1 class="centerize">Daily Software Notes</h1>
 
     <div class="container">
-        <h3>Day #5 : CSS Rotate</h3>
-        <p class="lead">Css de rotate bir elemanı saat yönünde veya tersinde belirli bir açıyla döndürmek için kullanılır. Özellikle transform ile birlikte kullanıldığında şık animasyonlar elde etmek mümkündür. alışveriş sitelerinde kart bilgilerinizi girdiğiniz ekrandaki dönen kart animasyonuna aşinasınızdır. Bir örneğini aşağıda bulabilirsiniz.</p>
+        <h3>Day #5 : CSS :has()</h3>
+        <p class="lead">This pseudo-class search for any tag, class or selectors relative to current selector. If any found then it styles the current selector.</p>
 
         <p class="css-container">
-            .item {<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="highlight">rotate: 45deg;</span><br />}<br />
-            .item:hover {<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;transform: rotate(45deg);<br />}<br />
+            :has({selector}){<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...<br />
+            }<br />
+        </p>
+        <p class="lead">For example, give red color to all h1 elements if it has an item with class 'red';</p>
+        <p class="css-container">
+            h1:has(.red){<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;color:red;<br />
+            }<br />
+             <span>&lt;h1&gt;H1 element with &lt;span class="red"&gt;red class&lt;/span&gt;&lt;/h1&gt;</span>
+        </p>
+        <p class="lead">Second example, give blue color to all h1 elements if any h2 element comes after h1;</p>
+        <p class="css-container">
+            h1:has(+h2){<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;color:blue;<br />
+            }<br />
+             <span>&lt;h1&gt;H1 element with H2 Element&lt;/h1&gt;</span><br />
+             <span>&lt;h2&gt;H2 as sub title&lt;/h2&gt;</span>
         </p>
         <br />
         <h4>Output</h4>
-        <div class="flip-card-container">
-            <div class="card-flip">
-                <div class="flip-content">
-                    <div class="back">
-                        <p class="lead">Log workleri girmeyi unutmayalım :)</p>
-                    </div>
-                    <div class="front">Hover Me!</div>
-                </div>
-            </div>
-        </div>
-        <br />
-        <p class="css-container">
-            .card-flip {<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;width: 300px; height: 300px; float: left; perspective: 500px; <br />}<br />
-            .flip-content {<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; position: absolute; width: 100%; height: 100%; box-shadow: 0 0 15px rgba(0,0,0,0.1); transition: transform 1s; transform-style: preserve-3d; <br />}<br />
-            .card-flip:hover .flip-content {<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   <span class="highlight">transform: rotateY( 180deg );</span> transition: transform 0.5s; <br />}<br />
-            .front, .back { <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; position: absolute; height: 100%; width: 100%; background: #d862ff; line-height: 300px; color: #fff; text-align: center; font-size: 60px; border-radius: 5px; backface-visibility: hidden; <br />}<br />
-            .back {<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  background: #03446A; color: white; <span class="highlight">transform: rotateY( 180deg );</span> <br />}<br />
-        </p>
+        <h1>H1 element with <span class="red">span.red class</span></h1>
+        <p>Some text.</p>
 
+        <h1>H1 element with H2 Element</h1>
+        <h2>H2 as sub title</h2>
+        <p>Some text..</p>
     </div>
 
     <div class="container">
