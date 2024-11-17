@@ -1,7 +1,8 @@
 <!--
     Author: Osman Sokuoğlu
-    Last Update : 05.11.2024
+    Last Update : 17.11.2024
 -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -33,6 +34,12 @@
         .css-tooltip{position: relative;cursor: pointer;font-weight: 600;color:red;}
         .css-tooltip::before{content: 'A nice tooltip'; display: none;padding: 3px 7px; border-radius: 6px;color: #2678bf;  position: absolute;top: -27px;font-size: 13px; width: max-content;border: 1px solid #2678bf;}
         .css-tooltip:hover::before{display:inline-block;}
+
+        #gap-flex-container {background-color: rgb(128, 219, 255);display: flex;flex-wrap: wrap;gap: 20px 30px;}
+        #gap-flex-container.no-gap {gap:inherit;}
+        #gap-flex-container > div { border: 1px solid rgb(255, 29, 29);width: 10%; aspect-ratio: 2;padding: 10px;background-color: rgb(228, 231, 19);}
+
+        #gap-multi-column { border: solid black 1px; background-color: lightgoldenrodyellow;columns: 4;gap: 60px;}
     </style>
 </head>
 <body>
@@ -41,6 +48,67 @@
     </script>
 
     <h1 class="centerize">Daily Software Notes</h1>
+
+    <div class="container">
+        <h3>Day #7 : CSS Gap</h3>
+        <p class="lead">The <b>gap</b> property in CSS  is used to create space between items in a flexbox, grid or multi-column layout.</p>
+
+        <p class="lead">For example  </p>
+        <p class="css-container">
+            &lt;div id="gap-flex-container"&gt;<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div&gt;#Div-1&lt;/div&gt;<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div&gt;#Div-2&lt;/div&gt;<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div&gt;#Div-3&lt;/div&gt; <br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div&gt;#Div-4&lt;/div&gt;<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div&gt;#Div-5&lt;/div&gt;<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div&gt;#Div-6&lt;/div&gt;<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div&gt;#Div-7&lt;/div&gt;<br/>  
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div&gt;#Div-8&lt;/div&gt; <br/> 
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div&gt;#Div-9&lt;/div&gt;<br/>
+            &lt;/div&gt;#Div-
+        </p>
+        
+        <p class="lead">By applying css rules;</p>
+        <p class="css-container">
+            #gap-flex-container {background-color: rgb(128, 219, 255);display: flex;flex-wrap: wrap;<span class="highlight">gap: 20px 30px;</span>}<br/>
+            #gap-flex-container > div { border: 1px solid rgb(255, 29, 29);width: 10%; aspect-ratio: 2;padding: 10px;background-color: rgb(228, 231, 19);}
+        </p>
+
+        <h4>Output</h4>
+        <div id="gap-flex-container">
+            <div>#Div-1</div>
+            <div>#Div-2</div>
+            <div>#Div-3</div>  
+            <div>#Div-4</div>
+            <div>#Div-5</div>
+            <div>#Div-6</div>
+            <div>#Div-7</div>  
+            <div>#Div-8</div>  
+            <div>#Div-9</div>
+          </div>
+
+          <p class="lead">And without using gap property;</p>
+
+          <div id="gap-flex-container" class="no-gap">
+            <div>#Div-1</div>
+            <div>#Div-2</div>
+            <div>#Div-3</div>  
+            <div>#Div-4</div>
+            <div>#Div-5</div>
+            <div>#Div-6</div>
+            <div>#Div-7</div>  
+            <div>#Div-8</div>  
+            <div>#Div-9</div>
+          </div>
+
+          <p>Another example of using gap property through multi-column layout;</p>
+          <p class="css-container">
+            #gap-multi-column { border: solid black 1px; background-color: lightgoldenrodyellow;columns: 4;<span class="highlight">gap: 60px;</span>}
+        </p>
+          <div id="gap-multi-column">
+            Well, wonder no more! With our Viking Name Generator, you’re just a click away from discovering your epic Norse alter ego. What comes next, now that you’ve generated a name you’re proud of? Fear not! We’ve crafted a delightful list of amusing and slightly mischievous ways you can use your newfound Viking name in everyday life. From jazzing up your coffee runs to conquering the digital realms, these ideas are sure to add a splash of Viking fun to your day. Read on and let the adventures of “you-the-Viking” begin!
+          </div>
+    </div>
 
     <div class="container">
         <h3>Day #6 : CSS only Tooltip</h3>
@@ -58,8 +126,6 @@
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;position: absolute;top: -27px;font-size: 13px; width: max-content;border: 1px solid #2678bf;}<br/>
             .css-tooltip:hover::before{display:inline-block;}<br/>
         </p>
-
-        
         
         <br />
         <h4>Output</h4>
