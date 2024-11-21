@@ -1,3 +1,2 @@
 # DailyNotes
-Daily software tips for everyone.
-Just download and read daily_notes.html file.
+A simple and efficient platform for organizing daily notes, tasks, and ideas. DailyNotes helps you stay productive by providing an intuitive interface to keep track of your thoughts and daily activities.
