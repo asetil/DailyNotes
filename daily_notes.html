@@ -35,6 +35,58 @@
 
     <h1 class="centerize">Daily Software Notes</h1>
 
+    <div class="container" style="position: relative;z-index: 1;">
+        <h3>Day #8 CSS : Border Animation</h3>
+        <p class="lead">Today we will animate the html borders using only css.</p>
+
+        <p class="lead">First create our html content;</p>
+        <pre><code class="language-html">
+            &lt;div class="border-animate"&gt;Loading.. Please wait..&lt;/div&gt;
+        </code></pre>
+
+        <p class="lead">Then, add the css rules. We will use conic-gradient property to animate the border for pseudo ::after and ::before elements;</p>        
+        <pre><code class="language-css">
+            @property --angle{
+                syntax: '<angle>';
+                initial-value: 0deg;
+                inherits: false;
+            }
+
+            .border-animate{margin: 0 auto; padding: 2em 0; text-align: center;width: 300px;
+                background-color: #fff;border-radius: 10px;position: relative;}
+
+            .border-animate::after, .border-animate::before{content: '';position: absolute;height: 100%;width: 100%;
+                background: conic-gradient(from var(--angle), #ff4545, #00ff99, #006aff, #ff0095, #ff4545); 
+                border-radius: 10px;top:50%;left:50%;translate:-50% -50%;z-index: -1;padding: 6px;
+                animation: 3s spin linear infinite;}
+                
+            .border-animate::before{
+                filter: blur(1.5rem);
+                opacity: 0.5;
+            }
+
+            @keyframes spin {
+                from{--angle:0deg;}
+                to{--angle:360deg;}
+            }
+        </code></pre>       
+
+        <h4>Output</h4>
+        <div style="display: flex;justify-content: space-around;margin-bottom: 40px;">
+            <div class="lead border-animate">
+                Loading.. Please wait..
+            </div>
+    
+            <div class="lead border-animate border-animate-2">
+                Loading.. Please wait..
+            </div>
+
+            <div class="lead border-animate border-animate-3">
+                Loading.. Please wait..
+            </div>
+        </div>
+    </div>
+
     <div class="container">
         <h3>Day #8 JS: Nummber Counter</h3>
         <p class="lead">You may have come across sections on corporate websites titled 'Our Services in Numbers.' Today, let's see how we can create one ourselves!</p>

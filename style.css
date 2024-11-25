@@ -32,3 +32,25 @@ h1:has(+h2) { color: blue; }
 
 .numeric-counter-container{display: flex;justify-content: space-around;font-size: 20px;text-align: center;font-weight: bold;}
 .numeric-counter-container span{display: block;font-size: 30px;color: #2678bf;}
+
+@property --angle{
+    syntax: '<angle>';
+    initial-value: 0deg;
+    inherits: false;
+}
+
+.border-animate{margin: 0 auto; padding: 2em 0; text-align: center;width: 300px;background-color: #fff;border-radius: 10px;position: relative;}
+.border-animate::after, .border-animate::before{content: '';position: absolute;height: 100%;width: 100%;background: conic-gradient(from var(--angle), #ff4545, #00ff99, #006aff, #ff0095, #ff4545); border-radius: 10px;top:50%;left:50%;translate:-50% -50%;z-index: -1;padding: 6px;animation: 3s spin linear infinite;}
+.border-animate::before{
+    filter: blur(1.5rem);
+    opacity: 0.5;
+}
+
+.border-animate-2::after, .border-animate-2::before{background: conic-gradient(from var(--angle),transparent 70%, #ff0095 30%);padding: 4px; }
+.border-animate-3::after, .border-animate-3::before{background: conic-gradient(from var(--angle), #00ff99, #006aff, #00ff99, #00ff99);padding: 4px; }
+
+
+@keyframes spin {
+    from{--angle:0deg;}
+    to{--angle:360deg;}
+}
